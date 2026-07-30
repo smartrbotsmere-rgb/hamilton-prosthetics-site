@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/</loc>
+    <lastmod>2026-07-30T15:25:58.755Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/learning-centre/</loc>
     <lastmod>2026-07-30T14:37:10.645Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -68,11 +73,6 @@
   <url>
     <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/services/</loc>
     <lastmod>2026-07-30T14:34:59.548Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/</loc>
-    <lastmod>2026-07-30T14:34:50.494Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
