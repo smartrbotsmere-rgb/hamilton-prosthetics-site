@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/patient-stories/</loc>
+    <lastmod>2026-07-30T22:26:24.581Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/funding-sponsorship/</loc>
     <lastmod>2026-07-30T22:25:23.127Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -43,11 +48,6 @@
   <url>
     <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/</loc>
     <lastmod>2026-07-30T22:19:26.802Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://smartrbotsmere-rgb.github.io/hamilton-prosthetics-site/patient-stories/</loc>
-    <lastmod>2026-07-30T15:34:18.139Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
