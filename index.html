@@ -28,14 +28,18 @@
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="hamilton-prosthetics";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,7 +329,7 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="hover:text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
     </div>
   </nav>
 
@@ -339,23 +343,14 @@
       <div class="relative mx-auto max-w-7xl px-4 py-24 md:px-8 lg:px-12 md:py-32">
         <div class="max-w-2xl">
           <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">London, Ontario · Since 1988</p>
-          <h1 class="text-5xl md:text-7xl leading-[0.95] mb-6">Helping You Move Forward Since 1988</h1>
-          <p class="text-lg md:text-xl text-white/85 mb-8 max-w-xl">Expert prosthetic and orthotic care for children and adults across London and Southwestern Ontario.</p>
+          <h1 class="text-5xl md:text-7xl leading-[0.95] mb-4">Prosthetic &amp; Orthotic Care Built Around You.</h1>
+          <p class="text-2xl md:text-3xl font-semibold text-white/90 mb-6">Family owned in London, Ontario since 1988.</p>
+          <p class="text-lg md:text-xl text-white/85 mb-8 max-w-xl">Advanced prosthetics, custom orthotic devices and personalized care for children and adults across Southwestern Ontario.</p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex justify-center rounded-full bg-[#4C9A6A] px-7 py-4 font-semibold text-white shadow-lg hover:bg-[#3f8258]">Book Appointment</a>
+            <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex justify-center rounded-full bg-[#4C9A6A] px-7 py-4 font-semibold text-white shadow-lg hover:bg-[#3f8258]">Book Appointment</a>
             <a href="/hamilton-prosthetics-site/funding-sponsorship" class="inline-flex justify-center rounded-full border border-white/40 px-7 py-4 font-semibold text-white hover:bg-white/10">Learn About Funding</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- TRUST BAR -->
-    <section data-section="trust-bar" class="bg-[#F2F4F5] border-b border-black/5">
-      <div class="mx-auto max-w-7xl px-4 py-6 md:px-8 lg:px-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm uppercase tracking-wide text-[#1B3A4B] font-semibold">
-        <span>⭐ 5.0 Google &amp; Facebook Reviews</span>
-        <span>Family Owned Since 1988</span>
-        <span>Certified Prosthetists &amp; Orthotists</span>
-        <span>Serving Southwestern Ontario</span>
       </div>
     </section>
 
@@ -388,6 +383,48 @@
       </div>
     </section>
 
+    <!-- ADVANCED PROSTHETIC & ORTHOTIC CARE -->
+    <section data-section="advanced-care" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-12 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Advanced Prosthetic &amp; Orthotic Care</h2>
+          <p class="text-lg text-black/70">From microprocessor-controlled knees and feet to myoelectric and bionic upper-extremity systems, our team combines advanced technology with decades of hands-on clinical experience.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div class="rounded-2xl border border-black/10 p-6 text-center bg-white">
+            <h3 class="text-xl mb-1">Lower Limb</h3>
+            <p class="text-sm text-black/60">Prosthetic care from partial foot through complex levels</p>
+          </div>
+          <div class="rounded-2xl border border-black/10 p-6 text-center bg-white">
+            <h3 class="text-xl mb-1">Upper Limb</h3>
+            <p class="text-sm text-black/60">Myoelectric, body-powered and cosmetic solutions</p>
+          </div>
+          <div class="rounded-2xl border border-black/10 p-6 text-center bg-white">
+            <h3 class="text-xl mb-1">Pediatric</h3>
+            <p class="text-sm text-black/60">Care that grows alongside your child</p>
+          </div>
+          <div class="rounded-2xl border border-black/10 p-6 text-center bg-white">
+            <h3 class="text-xl mb-1">Orthotics</h3>
+            <p class="text-sm text-black/60">Custom bracing for stability, alignment and comfort</p>
+          </div>
+          <div class="rounded-2xl border border-black/10 p-6 text-center bg-white">
+            <h3 class="text-xl mb-1">Silicone</h3>
+            <p class="text-sm text-black/60">Realistic cosmetic restorations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKING TOGETHER IN YOUR CARE -->
+    <section data-section="working-together" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-5xl mb-6">Working Together in Your Care</h2>
+          <p class="text-lg leading-8 text-black/75">Our clinicians have longstanding relationships with the specialized rehabilitation teams at Parkwood Institute and Thames Valley Children's Centre, and collaborate closely with physicians, physiotherapists, occupational therapists and other healthcare professionals throughout your care.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- WHY HAMILTON -->
     <section data-section="why-hamilton" class="bg-[#1B3A4B] text-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
@@ -408,8 +445,8 @@
         <div>
           <p class="text-sm uppercase tracking-[0.2em] text-[#4A90B8] mb-3">About the clinic</p>
           <h2 class="text-4xl md:text-5xl mb-6">These are the people you want helping your family.</h2>
-          <p class="text-lg leading-8 text-black/75 mb-4">Hamilton Prosthetics &amp; Orthotics is a family-owned clinic serving London and Southwestern Ontario since 1988. Our certified prosthetists, orthotists, and registered nurse work together under one roof, with an in-house fabrication lab for faster turnaround.</p>
-          <a href="/hamilton-prosthetics-site/about" class="inline-block font-semibold text-[#4A90B8] hover:underline">Meet the team →</a>
+          <p class="text-lg leading-8 text-black/75 mb-4">Hamilton Prosthetics &amp; Orthotics is an independent, family-owned clinic serving London and Southwestern Ontario since 1988. Founded by Jim Cheng and now led by his daughter Shirley, our certified prosthetists, orthotists and technical team continue to work together under one roof, combining two generations of experience with modern technology and in-house fabrication.</p>
+          <a href="/hamilton-prosthetics-site/about" class="inline-block font-semibold text-[#4A90B8] hover:underline">Read our full story →</a>
         </div>
         <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0573.jpg?updatedAt=1785424495578" alt="Clinician fitting a patient with a prosthetic device" class="rounded-3xl w-full object-cover shadow-md" />
       </div>
@@ -423,32 +460,7 @@
           <h2 class="text-4xl md:text-5xl mb-2">What Our Patients Say</h2>
           <p class="text-black/60">Real reviews from real patients — Google &amp; Facebook</p>
         </div>
-        <div class="reviews-scroll flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory">
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Very professional and knowledgeable staff and service. Products are long lasting and extremely high quality."</p>
-            <p class="font-semibold text-sm">— Jason Regier</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"From the 1st minute I was there, I knew I was in the right place... for the 1st time in my life (57 yrs), I was walking perfectly, balanced and pain free."</p>
-            <p class="font-semibold text-sm">— Ernie Woodburn</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Wonderful experience, great staff."</p>
-            <p class="font-semibold text-sm">— Cody Smith</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Shirley and Joe have been great in being very responsive and delivering prompt and excellent service to our daughter!"</p>
-            <p class="font-semibold text-sm">— Robert Cochrane</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Joe saw me the same day and did the repair while I waited. He was kind, considerate, and the brace was back in order within half an hour."</p>
-            <p class="font-semibold text-sm">— Carol Tattersall</p>
-          </div>
+        <div class="reviews-scroll flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory justify-center flex-wrap">
           <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
             <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
             <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"I've been a LBK amputee for 11 years and have never experienced this thoroughness... Shirley really listens. I highly recommend this team."</p>
@@ -458,31 +470,6 @@
             <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
             <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"We are now on the second iteration of it and I'm very excited... Joseph and Shirley have been very accommodating with my goals."</p>
             <p class="font-semibold text-sm">— Jonas Schwarz</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"THE best company to deal with prosthetics and all related topics. Shirley and Joe are the most helpful, caring people I have met."</p>
-            <p class="font-semibold text-sm">— B. Daniels</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Very satisfied with the orthopedic brace for the short leg of my wife. Well done! This is the best place to get the job done."</p>
-            <p class="font-semibold text-sm">— geedouglas</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Shirley and Joe have been amazing throughout... Makes my day to be greeted by Mom Doris — that is part of the charm!"</p>
-            <p class="font-semibold text-sm">— Debbie Sluys</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"This business is more like a family... They changed my life for the better with equipment I didn't even know existed."</p>
-            <p class="font-semibold text-sm">— Keith Wood</p>
-          </div>
-          <div class="snap-start shrink-0 w-[280px] md:w-[320px] rounded-3xl bg-white p-6 shadow-sm flex flex-col">
-            <div class="text-[#4A90B8] text-lg mb-3">★★★★★</div>
-            <p class="text-black/80 text-sm leading-6 mb-4 flex-1">"Milking the cows was easier today, thank you again."</p>
-            <p class="font-semibold text-sm">— Real patient, functional upper-extremity prosthesis</p>
           </div>
         </div>
         <a href="https://www.facebook.com/HamiltonProsthetics/" target="_blank" rel="noopener noreferrer" class="mt-6 block text-center text-sm font-semibold text-[#4A90B8] hover:underline">Read more reviews →</a>
@@ -494,9 +481,9 @@
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-8 lg:grid-cols-2 items-center">
         <div>
           <p class="text-sm uppercase tracking-[0.2em] text-white/60 mb-3">Funding assistance</p>
-          <h2 class="text-4xl md:text-5xl mb-6">Up to 75% of your device cost may be covered.</h2>
-          <p class="text-lg leading-8 text-white/80 mb-6">We help you navigate ADP, WSIB, and private insurance — from paperwork to approval.</p>
-          <a href="/hamilton-prosthetics-site/funding-sponsorship" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Learn About Funding</a>
+          <h2 class="text-4xl md:text-5xl mb-6">Understanding Prosthetic &amp; Orthotic Funding</h2>
+          <p class="text-lg leading-8 text-white/80 mb-6">Our team helps patients navigate ADP, WSIB, private insurance and other funding programs.</p>
+          <a href="/hamilton-prosthetics-site/funding-sponsorship" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Explore Funding Options</a>
         </div>
         <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0126.PNG?updatedAt=1785424499233" alt="Child with a pediatric prosthetic leg playing outdoors" class="rounded-3xl w-full object-cover shadow-lg" />
       </div>
@@ -506,9 +493,9 @@
     <section data-section="ai-chat" class="bg-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
         <div>
-          <p class="text-sm uppercase tracking-[0.2em] text-[#4A90B8] mb-3">AI assistance</p>
-          <h2 class="text-4xl md:text-5xl mb-6">Have Questions? Ask Anytime — Day or Night.</h2>
-          <p class="text-lg leading-8 text-black/75">Get instant answers about services, funding, and appointments. Type or talk — whichever is easier for you.</p>
+          <p class="text-sm uppercase tracking-[0.2em] text-[#4A90B8] mb-3">Ask Hamilton P&amp;O</p>
+          <h2 class="text-4xl md:text-5xl mb-6">Questions Answered Anytime, Day or Night.</h2>
+          <p class="text-lg leading-8 text-black/75">Ask Hamilton P&amp;O for instant answers about services, funding and appointments. Type or talk — whichever is easier for you.</p>
         </div>
         <div class="rounded-3xl bg-[#F2F4F5] p-4 md:p-6">
           <iframe src="https://paymegpt.com/agents/56161813/embed" frameborder="0" style="width:100%;max-width:480px;height:575px;border:none;border-radius:12px;"></iframe>
@@ -523,12 +510,12 @@
           <h2 class="text-4xl md:text-5xl mb-6">Book a Free Consultation</h2>
           <div class="space-y-3 text-white/85">
             <p><strong class="text-white">Address:</strong> 450 Hamilton Rd, London ON N5Z 1R9</p>
-            <p><strong class="text-white">Phone:</strong> Joseph Griffa — (519) 878-2423</p>
-            <p><strong class="text-white">Email:</strong> jg.hamiltonpo@gmail.com</p>
+            <p><strong class="text-white">Phone:</strong> (519) 432-2041</p>
+            <p><strong class="text-white">Email:</strong> info@hamiltonprosthetics.ca</p>
             <p><strong class="text-white">Hours:</strong> Mon–Fri 8AM–5PM</p>
-            <p><strong class="text-white">Service area:</strong> London, Woodstock, St. Thomas, Strathroy, Sarnia, Southwestern Ontario</p>
+            <p><strong class="text-white">Service area:</strong> London, Woodstock, St. Thomas, Strathroy, Sarnia, Chatham, Windsor, Stratford, Lambeth, Tillsonburg and Southwestern Ontario</p>
           </div>
-          <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="mt-6 inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Request an Appointment</a>
+          <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="mt-6 inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Request an Appointment</a>
         </div>
         <div class="overflow-hidden rounded-3xl shadow-sm">
           <iframe title="Google Map" src="https://www.google.com/maps?q=450+Hamilton+Rd+London+ON+N5Z+1R9&output=embed" class="h-[420px] w-full md:h-full" style="border:0;" loading="lazy"></iframe>
