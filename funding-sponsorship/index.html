@@ -17,25 +17,29 @@
 
 <!-- SEO Meta Tags -->
 <title>Funding &amp; Sponsorship | Hamilton Prosthetics &amp; Orthotics</title>
-<meta name="description" content="Funding &amp; Sponsorship page" />
+<meta name="description" content="Understand ADP, WSIB, and private insurance funding for prosthetic and orthotic devices in Ontario. Hamilton Prosthetics &amp; Orthotics, London, Ontario." />
 <meta property="og:title" content="Funding &amp; Sponsorship | Hamilton Prosthetics &amp; Orthotics" />
-<meta property="og:description" content="Funding &amp; Sponsorship page" />
+<meta property="og:description" content="Understand ADP, WSIB, and private insurance funding for prosthetic and orthotic devices in Ontario. Hamilton Prosthetics &amp; Orthotics, London, Ontario." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Funding &amp; Sponsorship | Hamilton Prosthetics &amp; Orthotics" />
-<meta name="twitter:description" content="Funding &amp; Sponsorship page" />
+<meta name="twitter:description" content="Understand ADP, WSIB, and private insurance funding for prosthetic and orthotic devices in Ontario. Hamilton Prosthetics &amp; Orthotics, London, Ontario." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="lp-ms7lj8cx-0j0rk";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,62 +329,157 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="hover:text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Funding%20Question&body=Name%3A%0APhone%3A%0ADevice%20I%27m%20asking%20about%3A%0AFunding%20source%20(ADP%2FWSIB%2FInsurance%2FNot%20sure)%3A%0AQuestion%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Talk to Us About Funding</a>
     </div>
   </nav>
 
   <main>
+    <!-- HERO -->
     <section data-section="hero" class="bg-[#1B3A4B] text-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-24">
         <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">Funding & Sponsorship</p>
         <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6 max-w-2xl">Understanding Your Funding Options</h1>
-        <p class="text-lg text-white/85 max-w-xl">Up to 75% of your device cost may be covered. We help you navigate the paperwork so you don't have to do it alone.</p>
+        <p class="text-lg text-white/85 max-w-2xl mb-8">Funding prosthetic or orthotic care can feel complicated. We're here to make it easier. Our team has decades of experience working with government funding programs, workplace benefits, private insurance and other funding organizations. We'll help you understand the coverage available to you, prepare the required documentation, and guide you through the approval process. You focus on your care — we'll help you navigate the funding.</p>
+        <a href="mailto:info@hamiltonprosthetics.ca?subject=Funding%20Question&body=Name%3A%0APhone%3A%0ADevice%20I%27m%20asking%20about%3A%0AFunding%20source%20(ADP%2FWSIB%2FInsurance%2FNot%20sure)%3A%0AQuestion%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-7 py-4 font-semibold text-white shadow-lg hover:bg-[#3f8258]">Talk to Us About Funding</a>
       </div>
     </section>
 
-    <section data-section="faq-funding" class="bg-white">
-      <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20">
-        <h2 class="text-4xl md:text-5xl text-center mb-12">Common Funding Questions</h2>
-        <div class="space-y-4">
-          <details class="rounded-2xl border border-black/10 p-6 group">
-            <summary class="cursor-pointer text-xl font-semibold list-none flex items-center justify-between">Does ADP pay for prosthetic limbs? <span class="text-[#4A90B8]">＋</span></summary>
-            <p class="mt-3 text-black/70 leading-7">Ontario's Assistive Devices Program (ADP) typically funds a significant portion of prosthetic and orthotic device costs for eligible residents. We'll help determine your eligibility and handle the application with you.</p>
-          </details>
-          <details class="rounded-2xl border border-black/10 p-6 group">
-            <summary class="cursor-pointer text-xl font-semibold list-none flex items-center justify-between">What if my injury was work-related? <span class="text-[#4A90B8]">＋</span></summary>
-            <p class="mt-3 text-black/70 leading-7">WSIB (Workplace Safety and Insurance Board) covers prosthetic and orthotic devices related to workplace injuries. We work directly with WSIB case managers to coordinate your care.</p>
-          </details>
-          <details class="rounded-2xl border border-black/10 p-6 group">
-            <summary class="cursor-pointer text-xl font-semibold list-none flex items-center justify-between">Will my private insurance cover the rest? <span class="text-[#4A90B8]">＋</span></summary>
-            <p class="mt-3 text-black/70 leading-7">Many extended health plans cover a portion of costs not covered by ADP. We can provide the documentation your insurer needs and help you understand what's typically covered.</p>
-          </details>
-          <details class="rounded-2xl border border-black/10 p-6 group">
-            <summary class="cursor-pointer text-xl font-semibold list-none flex items-center justify-between">How long does funding approval take? <span class="text-[#4A90B8]">＋</span></summary>
-            <p class="mt-3 text-black/70 leading-7">Timelines vary by funder, but we start the paperwork early in your assessment process to avoid unnecessary delays in getting your device.</p>
-          </details>
+    <!-- PROCESS -->
+    <section data-section="process" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <h2 class="text-4xl md:text-5xl text-center mb-12">We'll Help You Navigate the Process</h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl bg-[#F2F4F5] p-7">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#4A90B8] text-white font-semibold">1</div>
+            <h3 class="text-xl mb-2 text-center">Identify Your Options</h3>
+            <p class="text-sm text-black/65 leading-6">We'll review your situation and help identify government programs, insurance benefits and other funding sources that may be available to you.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-7">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#4A90B8] text-white font-semibold">2</div>
+            <h3 class="text-xl mb-2 text-center">Prepare the Paperwork</h3>
+            <p class="text-sm text-black/65 leading-6">Our team prepares detailed estimates and works with healthcare providers to obtain the prescriptions and clinical documentation required to support your application.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-7">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#4A90B8] text-white font-semibold">3</div>
+            <h3 class="text-xl mb-2 text-center">Coordinate the Approval</h3>
+            <p class="text-sm text-black/65 leading-6">We work with funding agencies, insurers and case managers to help move your application through the approval process and respond when additional information is requested.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-7">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#4A90B8] text-white font-semibold">4</div>
+            <h3 class="text-xl mb-2 text-center">Keep You Informed</h3>
+            <p class="text-sm text-black/65 leading-6">We'll explain what's covered, what may not be covered, and any potential costs before moving forward with your device.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- AGENCIES -->
     <section data-section="funders" class="bg-[#F2F4F5]">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
         <h2 class="text-4xl md:text-5xl text-center mb-12">Funding Sources We Work With</h2>
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">ADP (Assistive Devices Program)</p></div>
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">WSIB</p></div>
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">Private Insurance</p></div>
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">Veterans Affairs Canada</p></div>
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">Ontario Works / ODSP</p></div>
-          <div class="rounded-2xl bg-white p-6 text-center shadow-sm"><p class="font-semibold text-lg">Community Sponsorship</p></div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <h3 class="text-xl mb-3">Government & Public Programs</h3>
+            <p class="text-black/70 text-sm leading-7">ADP · ODSP · Ontario Works · WSIB · Veterans Affairs Canada · NIHB · IFHP</p>
+          </div>
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <h3 class="text-xl mb-3">Insurance & Third-Party Funding</h3>
+            <p class="text-black/70 text-sm leading-7">Private/Extended Health Insurance · Workplace/Disability Benefits · Auto Insurance where applicable</p>
+          </div>
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <h3 class="text-xl mb-3">Additional Assistance</h3>
+            <p class="text-black/70 text-sm leading-7">The War Amps · CHAMP · Charitable & Community Funding</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section data-section="cta" class="bg-white">
+    <!-- FAQ -->
+    <section data-section="faq-funding" class="bg-white">
+      <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20">
+        <h2 class="text-4xl md:text-5xl text-center mb-12">Funding &amp; Insurance FAQ</h2>
+        <div class="space-y-4">
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">How Much Will I Have to Pay? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">There isn't one answer that applies to everyone. Your out-of-pocket cost will depend on the device recommended, your eligibility for government funding, and any private insurance or additional funding available to you. Before treatment proceeds, our team will review the expected cost with you and explain the funding and coverage that may apply. If you're unsure what coverage you have, don't worry — bring us whatever information you have and we'll help you determine the next steps.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">How much does ADP cover? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Ontario's Assistive Devices Program (ADP) provides funding toward eligible prosthetic and orthotic devices. For many eligible devices, ADP contributes up to 75% of the ADP approved price or maximum amount. This does not necessarily mean 75% of the total cost of every device. Our team will review the applicable ADP funding with you and explain any remaining costs before proceeding.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Does ADP cover all prosthetic components? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">No. ADP provides funding for many prosthetic devices and components, but not every component, feature or type of prosthesis is eligible for funding. Coverage also depends on your individual needs and the device prescribed. We will review the available ADP funding and discuss any additional costs or funding options with you.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Does ADP cover orthotic devices? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">ADP provides funding for certain eligible custom orthotic devices when program requirements are met. The amount and eligibility depend on the type of orthosis and your individual circumstances. Our team can help determine whether your prescribed device qualifies and guides you through the application process.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Can private insurance cover what ADP doesn't? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Often, yes. Many extended health insurance plans provide coverage for prosthetic and orthotic devices and may help with costs not funded through ADP. Coverage varies considerably between plans. We can provide detailed estimates and supporting documentation to help you obtain preauthorization or submit your claim.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Do I need a prescription? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Many funding programs and insurance providers require a prescription or other medical documentation before approving a prosthetic or orthotic device. Requirements vary depending on the device and funding source. If documentation is required, our team will explain what is needed and can work with your healthcare provider to help obtain it.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Do you submit the funding paperwork for me? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">In many cases, yes. Our team regularly prepares estimates, applications and supporting documentation for government funding programs, insurers and other funding organizations. Where direct submission is permitted, we can often coordinate the process on your behalf. If something needs to be completed or submitted by you or your healthcare provider, we'll let you know.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">What if my injury happened at work? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">If your prosthetic or orthotic needs are related to an approved workplace injury or illness, funding may be available through the Workplace Safety and Insurance Board (WSIB). Hamilton Prosthetics & Orthotics is a preferred WSIB vendor with extensive experience supporting injured workers throughout the funding and treatment process. Our team can work directly with your WSIB case manager and healthcare team to coordinate treatment recommendations, estimates, and any supporting documentation required for approval — helping make the process as straightforward as possible.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Does ODSP or Ontario Works provide additional funding? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Additional assistance may be available to eligible individuals receiving ODSP or Ontario Works, particularly for certain costs associated with ADP-funded devices and prosthetic supplies. Eligibility and coverage depend on the program and individual circumstances. Our team can help identify the funding that may apply to you.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Does The War Amps help with prosthetic costs? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Yes, eligible amputees may receive financial assistance for prosthetic care through The War Amps, including its programs for children and adults. The amount and type of assistance depend on individual eligibility and the device being requested. We have experience working with The War Amps and can help prepare the estimates and documentation required for consideration.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">How long does funding approval take? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Approval times vary depending on the funding organization, the type of device being requested and whether additional medical or clinical information is required. Some approvals are relatively straightforward, while more complex requests can take longer. We will submit the required documentation as promptly as possible and keep you informed throughout the process.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">What happens if my funding request is denied? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">A denial does not always mean there are no other options. We will review the reason for the decision and determine whether additional clinical information, clarification, reconsideration or another funding source may be appropriate. Where possible, we'll work with you and your healthcare team to explore the next steps.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Will I know how much I have to pay before you make my device? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">Yes. Before proceeding, we will review the estimated cost of your device, the funding or insurance coverage that has been confirmed, and any amount that will be your responsibility. Our goal is to make sure you understand the financial side of your care before treatment moves forward.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">What if I don't know what funding or insurance I have? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">That's okay. You don't need to understand the funding system before contacting us. Bring us whatever information you have — such as your insurance details, WSIB claim information, or information about government benefits — and our team can help determine which funding options may apply.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">Do I have to pay for my device upfront and get reimbursed? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">It depends on your funding source and insurance plan. In some situations, Hamilton Prosthetics & Orthotics can bill the funding organization or insurer directly. In others, you may be required to pay a portion and submit documentation for reimbursement. We will explain how billing will work in your particular situation before proceeding.</p>
+          </details>
+          <details class="rounded-2xl border border-black/10 p-6 group">
+            <summary class="cursor-pointer text-lg font-semibold list-none flex items-center justify-between gap-4">What if my insurance company asks for more information? <span class="accordion-icon text-[#4A90B8] text-2xl leading-none">+</span></summary>
+            <p class="mt-3 text-black/70 leading-7">This is common. Insurers may request prescriptions, clinical justification, treatment information, detailed estimates or additional documentation before approving a device. Our team regularly works with insurers and healthcare professionals to provide the clinical information required to support prosthetic and orthotic funding requests.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section data-section="cta" class="bg-[#F2F4F5]">
       <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
         <h2 class="text-4xl md:text-5xl mb-6">Let's figure out your funding together.</h2>
         <p class="text-lg text-black/70 mb-8">Bring your questions — we'll walk you through it step by step.</p>
-        <a href="mailto:jg.hamiltonpo@gmail.com?subject=Funding%20Question&body=Name%3A%0APhone%3A%0ADevice%20I%27m%20asking%20about%3A%0AFunding%20source%20(ADP%2FWSIB%2FInsurance%2FNot%20sure)%3A%0AQuestion%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Ask About Funding</a>
+        <a href="mailto:info@hamiltonprosthetics.ca?subject=Funding%20Question&body=Name%3A%0APhone%3A%0ADevice%20I%27m%20asking%20about%3A%0AFunding%20source%20(ADP%2FWSIB%2FInsurance%2FNot%20sure)%3A%0AQuestion%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Ask About Funding</a>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section data-section="disclaimer" class="bg-white">
+      <div class="mx-auto max-w-4xl px-4 pb-16 md:px-8">
+        <p class="text-xs text-black/45 leading-6 text-center">Funding eligibility and coverage vary by program, device and individual circumstances. Information on this page is provided as general guidance and does not guarantee funding or insurance approval.</p>
       </div>
     </section>
   </main>
