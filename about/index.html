@@ -17,25 +17,29 @@
 
 <!-- SEO Meta Tags -->
 <title>About &amp; Meet the Team | Hamilton Prosthetics &amp; Orthotics</title>
-<meta name="description" content="About / Meet the Team page" />
+<meta name="description" content="Family-owned since 1988. Meet the certified prosthetists, orthotists, and staff of Hamilton Prosthetics &amp; Orthotics in London, Ontario." />
 <meta property="og:title" content="About &amp; Meet the Team | Hamilton Prosthetics &amp; Orthotics" />
-<meta property="og:description" content="About / Meet the Team page" />
+<meta property="og:description" content="Family-owned since 1988. Meet the certified prosthetists, orthotists, and staff of Hamilton Prosthetics &amp; Orthotics in London, Ontario." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="About &amp; Meet the Team | Hamilton Prosthetics &amp; Orthotics" />
-<meta name="twitter:description" content="About / Meet the Team page" />
+<meta name="twitter:description" content="Family-owned since 1988. Meet the certified prosthetists, orthotists, and staff of Hamilton Prosthetics &amp; Orthotics in London, Ontario." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="lp-ms7lim7n-bm4iw";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,7 +329,7 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="hover:text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
     </div>
   </nav>
 
@@ -338,7 +342,7 @@
       <div class="relative mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-24">
         <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">About Us</p>
         <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6 max-w-2xl">These are the people you want helping your family.</h1>
-        <p class="text-lg text-white/85 max-w-xl">Family-owned and operated in London, Ontario since 1988 — three generations of trusted, personal care.</p>
+        <p class="text-lg text-white/85 max-w-xl">Family-owned and operated in London, Ontario since 1988.</p>
       </div>
     </section>
 
@@ -353,11 +357,42 @@
       </div>
     </section>
 
-    <section data-section="team" class="bg-[#F2F4F5]">
+    <section data-section="approach" class="bg-[#F2F4F5]">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
-        <h2 class="text-4xl md:text-5xl text-center mb-12">Meet the Team</h2>
+        <div class="text-center mb-12 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Our Approach to Care</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <div class="text-[#4A90B8] font-semibold text-sm uppercase tracking-[0.15em] mb-3">01</div>
+            <h3 class="text-2xl mb-2">Listen First</h3>
+            <p class="text-black/70 text-sm leading-6">We take the time to understand each person — their needs, goals, challenges, and what they want to get back to doing.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <div class="text-[#4A90B8] font-semibold text-sm uppercase tracking-[0.15em] mb-3">02</div>
+            <h3 class="text-2xl mb-2">Find the Right Solution</h3>
+            <p class="text-black/70 text-sm leading-6">No two people are the same. We recommend the technology and design that best support each patient's lifestyle, abilities, and goals — not simply the most advanced option available.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <div class="text-[#4A90B8] font-semibold text-sm uppercase tracking-[0.15em] mb-3">03</div>
+            <h3 class="text-2xl mb-2">Fit Matters</h3>
+            <p class="text-black/70 text-sm leading-6">A successful device starts with comfort, function, and attention to detail. Our clinical and technical teams work closely together throughout the fitting and fabrication process.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-7 shadow-sm">
+            <div class="text-[#4A90B8] font-semibold text-sm uppercase tracking-[0.15em] mb-3">04</div>
+            <h3 class="text-2xl mb-2">Here for the Long Term</h3>
+            <p class="text-black/70 text-sm leading-6">Our care doesn't end when a device is delivered. We continue to provide adjustments, maintenance, and ongoing support as our patients' needs change over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-section="team" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <h2 class="text-4xl md:text-5xl text-center mb-3">Meet the Team</h2>
+        <p class="text-center text-black/60 mb-12">Tap a team member to learn more.</p>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-3xl bg-white overflow-hidden shadow-sm">
+          <div class="team-card rounded-3xl bg-[#F2F4F5] overflow-hidden shadow-sm" data-member="james">
             <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/James%20Cheng.avif?updatedAt=1785424470749" alt="James Cheng, founder of Hamilton Prosthetics & Orthotics" class="w-full h-56 object-cover" />
             <div class="p-6">
               <h3 class="text-2xl mb-1">James Cheng</h3>
@@ -365,7 +400,7 @@
               <p class="text-black/70 text-sm">Practicing since the 1970s. Certified prosthetist and orthotist, licentiate engineer, and expert in complex fittings.</p>
             </div>
           </div>
-          <div class="rounded-3xl bg-white overflow-hidden shadow-sm">
+          <div class="team-card rounded-3xl bg-[#F2F4F5] overflow-hidden shadow-sm" data-member="shirley">
             <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/shirley.avif?updatedAt=1785424470766" alt="Shirley Cheng, certified prosthetist and orthotist" class="w-full h-56 object-cover" />
             <div class="p-6">
               <h3 class="text-2xl mb-1">Shirley Cheng</h3>
@@ -373,7 +408,7 @@
               <p class="text-black/70 text-sm">Certified prosthetist and orthotist, specializing in bionic and myoelectric upper and lower extremity prosthetics, plus pediatric orthotics.</p>
             </div>
           </div>
-          <div class="rounded-3xl bg-white overflow-hidden shadow-sm">
+          <div class="team-card rounded-3xl bg-[#F2F4F5] overflow-hidden shadow-sm" data-member="doris">
             <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/Doris%20Cheng.avif?updatedAt=1785424470482" alt="Doris Cheng, Registered Nurse" class="w-full h-56 object-cover" />
             <div class="p-6">
               <h3 class="text-2xl mb-1">Doris Cheng</h3>
@@ -381,26 +416,14 @@
               <p class="text-black/70 text-sm">Focused on patient comfort and wellbeing, funding assistance, and appointment management.</p>
             </div>
           </div>
-          <div class="rounded-3xl bg-white overflow-hidden shadow-sm">
-            <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/joseph%20griffa.avif?updatedAt=1785424470707" alt="Joseph Griffa, Technical Operations Manager" class="w-full h-56 object-cover" />
+          <div class="team-card rounded-3xl bg-[#F2F4F5] overflow-hidden shadow-sm" data-member="joseph">
+            <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/joseph%20griffa.avif?updatedAt=1785424470707" alt="Joseph Griffa, Operations & Technical Services Manager" class="w-full h-56 object-cover" />
             <div class="p-6">
               <h3 class="text-2xl mb-1">Joseph Griffa</h3>
-              <p class="text-[#4A90B8] font-semibold text-sm mb-2">Technical Operations Manager</p>
+              <p class="text-[#4A90B8] font-semibold text-sm mb-2">Operations & Technical Services Manager</p>
               <p class="text-black/70 text-sm">Leads the fabrication team, manages funding applications, and oversees materials and production.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section data-section="why" class="bg-[#1B3A4B] text-white">
-      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 text-center">
-          <div><div class="text-4xl mb-3">👪</div><p class="font-semibold">Family Owned</p></div>
-          <div><div class="text-4xl mb-3">🎓</div><p class="font-semibold">Expert Care</p></div>
-          <div><div class="text-4xl mb-3">🔧</div><p class="font-semibold">On-Site Fabrication</p></div>
-          <div><div class="text-4xl mb-3">🤝</div><p class="font-semibold">Personalized Treatment</p></div>
-          <div><div class="text-4xl mb-3">♾️</div><p class="font-semibold">Lifetime Support</p></div>
         </div>
       </div>
     </section>
@@ -409,7 +432,7 @@
       <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
         <h2 class="text-4xl md:text-5xl mb-6">Come see the clinic for yourself.</h2>
         <p class="text-lg text-black/70 mb-8">Free consultations at our wheelchair-accessible London clinic.</p>
-        <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book Your Free Consultation</a>
+        <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book Your Free Consultation</a>
       </div>
     </section>
   </main>
@@ -435,7 +458,19 @@
     </div>
   </footer>
 
+  <!-- TEAM MODAL -->
+  <div id="team-modal" class="fixed inset-0 z-[100] items-center justify-center bg-black/60 px-4">
+    <div class="relative bg-white rounded-3xl max-w-lg w-full p-8 shadow-xl">
+      <button id="team-modal-close" class="absolute top-4 right-4 text-black/40 hover:text-black text-2xl leading-none">&times;</button>
+      <img id="team-modal-img" src="" alt="" class="w-24 h-24 rounded-full object-cover mb-4" />
+      <h3 id="team-modal-name" class="text-3xl mb-1"></h3>
+      <p id="team-modal-title" class="text-[#4A90B8] font-semibold text-sm mb-4"></p>
+      <p id="team-modal-bio" class="text-black/75 leading-7"></p>
+    </div>
+  </div>
 
   <script src="https://paymegpt.com/widget.js" data-widget="56161813" async></script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
