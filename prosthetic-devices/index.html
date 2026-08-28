@@ -17,25 +17,29 @@
 
 <!-- SEO Meta Tags -->
 <title>Prosthetics &amp; Artificial Limbs | Hamilton Prosthetics &amp; Orthotics</title>
-<meta name="description" content="Prosthetics &amp; Artificial Limbs service page" />
+<meta name="description" content="Custom upper and lower limb prosthetics in London, Ontario — conventional, waterproof, sport-specific, myoelectric, and bionic technology. Serving Southwestern Ontario since 1988." />
 <meta property="og:title" content="Prosthetics &amp; Artificial Limbs | Hamilton Prosthetics &amp; Orthotics" />
-<meta property="og:description" content="Prosthetics &amp; Artificial Limbs service page" />
+<meta property="og:description" content="Custom upper and lower limb prosthetics in London, Ontario — conventional, waterproof, sport-specific, myoelectric, and bionic technology. Serving Southwestern Ontario since 1988." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Prosthetics &amp; Artificial Limbs | Hamilton Prosthetics &amp; Orthotics" />
-<meta name="twitter:description" content="Prosthetics &amp; Artificial Limbs service page" />
+<meta name="twitter:description" content="Custom upper and lower limb prosthetics in London, Ontario — conventional, waterproof, sport-specific, myoelectric, and bionic technology. Serving Southwestern Ontario since 1988." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="lp-ms75kcq7-nex4z";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,67 +329,212 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="hover:text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Prosthetic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Consultation</a>
     </div>
   </nav>
 
   <main>
-    <section data-section="hero" class="bg-[#1B3A4B] text-white">
-      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-24">
-        <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">🦿 I Need a Prosthesis</p>
-        <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6 max-w-2xl">Prosthetics & Artificial Limbs</h1>
-        <p class="text-lg text-white/85 max-w-xl">Custom solutions designed for comfort, mobility, and a natural feel in daily life — for adults and children, upper limb or lower limb, recent or long-recovered.</p>
+    <!-- HERO -->
+    <section data-section="hero" class="relative bg-[#1B3A4B] text-white overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_1110.jpg?updatedAt=1785424493221" alt="Prosthetist fitting a patient with a prosthetic limb" class="w-full h-full object-cover opacity-45" />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1B3A4B] via-[#1B3A4B]/70 to-[#1B3A4B]/40"></div>
       </div>
-    </section>
-
-    <section data-section="overview" class="bg-white">
-      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
-        <div>
-          <h2 class="text-4xl md:text-5xl mb-6">Support for every kind of limb loss.</h2>
-          <p class="text-lg leading-8 text-black/75 mb-4">We support patients with amputations related to trauma, diabetes, peripheral vascular disease, cancer, congenital conditions, and more — no matter how complex.</p>
-          <p class="text-lg leading-8 text-black/75">Every device is custom-fabricated in our on-site lab, so fittings, adjustments, and repairs happen quickly and precisely.</p>
+      <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-8 lg:px-12 md:py-28">
+        <div class="max-w-2xl">
+          <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">Prosthetic Care</p>
+          <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6">Prosthetic Care Built Around Your Life.</h1>
+          <p class="text-lg text-white/85 max-w-xl mb-8">No two people experience limb loss the same way — so we start by understanding you, your abilities, your lifestyle, and what you want to get back to doing.</p>
+          <a href="mailto:info@hamiltonprosthetics.ca?subject=Prosthetic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-7 py-4 font-semibold text-white shadow-lg hover:bg-[#3f8258]">Book a Free Prosthetic Consultation</a>
         </div>
-        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_1110.jpg?updatedAt=1785424493221" alt="Prosthetist fitting a patient with a prosthetic limb" class="rounded-3xl w-full object-cover shadow-md" />
       </div>
     </section>
 
-    <section data-section="device-types" class="bg-[#F2F4F5]">
+    <!-- 2x2 GRID -->
+    <section data-section="care-grid" class="bg-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
-        <h2 class="text-4xl md:text-5xl text-center mb-12">Devices We Offer</h2>
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Conventional Prosthetics</h3>
-            <p class="text-black/70">Reliable, everyday devices built for comfort and function.</p>
+        <h2 class="text-4xl md:text-5xl text-center mb-12">Prosthetic Care for Every Stage</h2>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="rounded-3xl bg-[#F2F4F5] p-8">
+            <h3 class="text-2xl mb-3">Lower-Limb Prosthetics</h3>
+            <p class="text-black/70 leading-7 mb-3">From everyday household mobility to work, recreation, and highly active lifestyles — partial foot through hip disarticulation and complex levels.</p>
+            <a href="/hamilton-prosthetics-site/technology" class="font-semibold text-[#4A90B8] hover:underline">Learn more →</a>
           </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Waterproof Prosthetics</h3>
-            <p class="text-black/70">For swimming, showering, and life near water.</p>
+          <div class="rounded-3xl bg-[#F2F4F5] p-8">
+            <h3 class="text-2xl mb-3">Upper-Limb Prosthetics</h3>
+            <p class="text-black/70 leading-7 mb-3">Highly individual care — from appearance and grip to returning to work — fingers through shoulder and complex levels.</p>
+            <a href="/hamilton-prosthetics-site/technology" class="font-semibold text-[#4A90B8] hover:underline">Learn more →</a>
           </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Sport-Specific Devices</h3>
-            <p class="text-black/70">Built for running, cycling, golf, and other active pursuits.</p>
+          <div class="rounded-3xl bg-[#F2F4F5] p-8">
+            <h3 class="text-2xl mb-3">Pediatrics</h3>
+            <p class="text-black/70 leading-7 mb-3">Prosthetic care that grows with your child, from early childhood through adolescence and into adulthood.</p>
+            <a href="/hamilton-prosthetics-site/pediatrics" class="font-semibold text-[#4A90B8] hover:underline">Explore pediatric prosthetics →</a>
           </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Myoelectric Prosthetics</h3>
-            <p class="text-black/70">Muscle-signal controlled devices for natural movement.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Microprocessor Knees & Feet</h3>
-            <p class="text-black/70">Advanced, sensor-driven components for stability and gait.</p>
-          </div>
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 class="text-2xl mb-2">Silicone Cosmetic Restorations</h3>
-            <p class="text-black/70">For missing digits, partial feet, hands, and cosmetic covers.</p>
+          <div class="rounded-3xl bg-[#F2F4F5] p-8">
+            <h3 class="text-2xl mb-3">Specialized Prostheses</h3>
+            <p class="text-black/70 leading-7 mb-3">Water and recreational devices, sport-specific components, silicone restorations, and work or task-specific solutions.</p>
+            <a href="/hamilton-prosthetics-site/technology" class="font-semibold text-[#4A90B8] hover:underline">Learn more →</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ADVANCED TECH -->
+    <section data-section="advanced-tech" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Advanced Technology. Thoughtfully Selected.</h2>
+          <p class="text-black/70">We work with leading prosthetic technologies and manufacturers to give our patients access to a wide range of options.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+            <h3 class="text-xl mb-1">Microprocessor Knees &amp; Feet</h3>
+          </div>
+          <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+            <h3 class="text-xl mb-1">Advanced Hydraulic Systems</h3>
+          </div>
+          <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+            <h3 class="text-xl mb-1">Myoelectric &amp; Bionic Hands</h3>
+          </div>
+          <div class="rounded-2xl bg-white p-6 text-center shadow-sm">
+            <h3 class="text-xl mb-1">Adjustable Socket Technology</h3>
+          </div>
+        </div>
+        <p class="text-center mt-8"><a href="/hamilton-prosthetics-site/technology" class="font-semibold text-[#4A90B8] hover:underline">See the full range of technology we work with →</a></p>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY CALLOUT -->
+    <section data-section="philosophy" class="bg-[#1B3A4B] text-white">
+      <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
+        <h2 class="text-3xl md:text-5xl leading-tight mb-4">The most advanced device isn't always the right device.</h2>
+        <p class="text-lg text-white/80">The right prosthesis is the one that provides meaningful benefit to the person using it. Our clinicians consider your abilities, environment, lifestyle, and goals before recommending any technology.</p>
+      </div>
+    </section>
+
+    <!-- YOUR FIRST PROSTHESIS - 8 STEP TIMELINE -->
+    <section data-section="first-prosthesis" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Your First Prosthesis</h2>
+          <p class="text-black/70">You don't need to have all the answers before coming to see us. Here's what to expect.</p>
+        </div>
+        <div class="timeline-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">1</div>
+            <h3 class="text-lg mb-1">Assessment</h3>
+            <p class="text-sm text-black/60">Learning about your health, abilities, residual limb, and goals.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">2</div>
+            <h3 class="text-lg mb-1">Treatment Planning</h3>
+            <p class="text-sm text-black/60">Recommending a prosthetic design and components for your needs.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">3</div>
+            <h3 class="text-lg mb-1">Funding &amp; Authorization</h3>
+            <p class="text-sm text-black/60">Coordinating funding, insurance, and required documentation.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">4</div>
+            <h3 class="text-lg mb-1">Measurement &amp; Fitting</h3>
+            <p class="text-sm text-black/60">Casting or digital methods begin your socket and system.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">5</div>
+            <h3 class="text-lg mb-1">Fabrication</h3>
+            <p class="text-sm text-black/60">Your prosthesis is assembled and customized in-house.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">6</div>
+            <h3 class="text-lg mb-1">Fitting &amp; Alignment</h3>
+            <p class="text-sm text-black/60">Evaluating comfort, alignment, function, and safety.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">7</div>
+            <h3 class="text-lg mb-1">Rehabilitation</h3>
+            <p class="text-sm text-black/60">Working alongside your rehab team as you build confidence.</p>
+          </div>
+          <div class="snap-start shrink-0 w-[220px] rounded-2xl bg-[#F2F4F5] p-5">
+            <div class="text-[#4A90B8] font-semibold text-sm mb-2">8</div>
+            <h3 class="text-lg mb-1">Ongoing Care</h3>
+            <p class="text-sm text-black/60">We stay involved as your needs change over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEDIATRIC FULL WIDTH -->
+    <section data-section="pediatric-photo" class="relative bg-[#1B3A4B] text-white overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0126.PNG?updatedAt=1785424499233" alt="Child with a pediatric prosthetic leg" class="w-full h-full object-cover opacity-35" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A4B] via-[#1B3A4B]/60 to-[#1B3A4B]/20"></div>
+      </div>
+      <div class="relative mx-auto max-w-4xl px-4 py-20 md:px-8 md:py-24 text-center">
+        <h2 class="text-4xl md:text-5xl mb-4">Prosthetic Care That Grows With Your Child.</h2>
+        <p class="text-lg text-white/85 mb-8">Children aren't simply smaller adults. We work closely with kids, parents, physicians, and therapists to support development, function, and play through every stage of growth.</p>
+        <a href="/hamilton-prosthetics-site/pediatrics" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold text-white hover:bg-[#3f8258]">Explore Pediatric Prosthetics</a>
+      </div>
+    </section>
+
+    <!-- SOCKET -->
+    <section data-section="socket" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
+        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0573.jpg?updatedAt=1785424495578" alt="Prosthetic socket fitting and fabrication" class="rounded-3xl w-full object-cover shadow-md order-2 lg:order-1" />
+        <div class="order-1 lg:order-2">
+          <h2 class="text-4xl md:text-5xl mb-6">Comfort Starts With the Socket.</h2>
+          <p class="text-lg leading-8 text-black/75 mb-4">Advanced components matter, but a successful prosthesis begins with a comfortable, well-fitting socket — the connection between your body and your prosthesis.</p>
+          <p class="text-lg leading-8 text-black/75">We place significant emphasis on socket design, biomechanics, alignment and suspension, with adjustments made throughout fitting to achieve the best balance of comfort, control and function.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MADE HERE FOR YOU -->
+    <section data-section="made-here" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-10 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Made Here. For You.</h2>
+          <p class="text-black/70 leading-7">Many of the custom elements of our prosthetic care are fabricated and adjusted on site at our London clinic. Having our clinical and technical teams working together under one roof means the people designing your treatment and the people bringing it to life are working side by side.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_1110.jpg?updatedAt=1785424493221" alt="Fabrication lab work" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0573.jpg?updatedAt=1785424495578" alt="Custom prosthetic fitting" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_3727.jpg?updatedAt=1785424499041" alt="Hamilton Prosthetics & Orthotics clinic" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ONGOING CARE ICON ROW -->
+    <section data-section="ongoing-care" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <h2 class="text-4xl md:text-5xl text-center mb-4">More Than the Prosthesis.</h2>
+        <p class="text-center text-black/70 max-w-2xl mx-auto mb-12">Successful prosthetic care doesn't end when your device is delivered. As your body, activities and goals change, we're here to help your prosthesis change with you.</p>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
+          <div><div class="text-3xl mb-2">🔧</div><p class="font-semibold text-sm">Repairs &amp; Maintenance</p></div>
+          <div><div class="text-3xl mb-2">🧦</div><p class="font-semibold text-sm">Liners, Sleeves &amp; Socks</p></div>
+          <div><div class="text-3xl mb-2">⚙️</div><p class="font-semibold text-sm">Component Replacement</p></div>
+          <div><div class="text-3xl mb-2">📈</div><p class="font-semibold text-sm">Growth &amp; Changing Needs</p></div>
+        </div>
+        <p class="text-center mt-8"><a href="/hamilton-prosthetics-site/contact" class="font-semibold text-[#4A90B8] hover:underline">Having problems with your current prosthesis? Talk to our team →</a></p>
+      </div>
+    </section>
+
+    <!-- FUNDING CROSS-LINK -->
+    <section data-section="funding-crosslink" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-4xl px-4 py-12 md:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl mb-3">Help With Prosthetic Funding</h2>
+        <p class="text-black/70 mb-4">We'll help you understand the funding options available and coordinate the documentation required throughout the process.</p>
+        <a href="/hamilton-prosthetics-site/funding-sponsorship" class="font-semibold text-[#4A90B8] hover:underline">Explore Funding Options →</a>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
     <section data-section="cta" class="bg-white">
       <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
-        <h2 class="text-4xl md:text-5xl mb-6">Let's find the right device for you.</h2>
-        <p class="text-lg text-black/70 mb-8">Free consultations at our wheelchair-accessible London clinic.</p>
-        <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book Your Free Consultation</a>
+        <h2 class="text-4xl md:text-5xl mb-4">Let's Talk About What's Possible.</h2>
+        <p class="text-lg text-black/70 mb-2">You don't need to know what prosthesis you need before coming to see us.</p>
+        <p class="text-lg text-black/70 mb-8">Hamilton Prosthetics &amp; Orthotics — family-owned and serving London and Southwestern Ontario since 1988.</p>
+        <a href="mailto:info@hamiltonprosthetics.ca?subject=Prosthetic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book a Free Prosthetic Consultation</a>
       </div>
     </section>
   </main>
