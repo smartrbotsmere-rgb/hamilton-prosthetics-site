@@ -17,25 +17,29 @@
 
 <!-- SEO Meta Tags -->
 <title>Orthotics &amp; Custom Braces | Hamilton Prosthetics &amp; Orthotics</title>
-<meta name="description" content="Orthotics &amp; Custom Braces service page" />
+<meta name="description" content="Custom orthotic devices and bracing for the whole body in London, Ontario — for joint injuries, scoliosis, diabetes-related conditions, and more. Since 1988." />
 <meta property="og:title" content="Orthotics &amp; Custom Braces | Hamilton Prosthetics &amp; Orthotics" />
-<meta property="og:description" content="Orthotics &amp; Custom Braces service page" />
+<meta property="og:description" content="Custom orthotic devices and bracing for the whole body in London, Ontario — for joint injuries, scoliosis, diabetes-related conditions, and more. Since 1988." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Orthotics &amp; Custom Braces | Hamilton Prosthetics &amp; Orthotics" />
-<meta name="twitter:description" content="Orthotics &amp; Custom Braces service page" />
+<meta name="twitter:description" content="Custom orthotic devices and bracing for the whole body in London, Ontario — for joint injuries, scoliosis, diabetes-related conditions, and more. Since 1988." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="lp-ms75kwm4-r3tya";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,52 +329,200 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="hover:text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Orthotic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Consultation</a>
     </div>
   </nav>
 
   <main>
-    <section data-section="hero" class="bg-[#1B3A4B] text-white">
-      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-24">
-        <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">🦵 I Need a Brace</p>
-        <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6 max-w-2xl">Orthotics & Custom Braces</h1>
-        <p class="text-lg text-white/85 max-w-xl">Support, alignment, and pain relief from head to toe — custom fabricated for your body and your condition.</p>
+    <!-- HERO: real patient using orthosis -->
+    <section data-section="hero" class="relative bg-[#1B3A4B] text-white overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/2776F98F-03C3-4C41-A931-8B4D28429309.jpg?updatedAt=1785424471497" alt="Patient being fitted with a custom orthotic brace" class="w-full h-full object-cover opacity-45" />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1B3A4B] via-[#1B3A4B]/70 to-[#1B3A4B]/40"></div>
       </div>
-    </section>
-
-    <section data-section="overview" class="bg-white">
-      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
-        <div>
-          <h2 class="text-4xl md:text-5xl mb-6">Custom bracing for the whole body.</h2>
-          <p class="text-lg leading-8 text-black/75 mb-4">Whether it's a joint injury, cerebral palsy, stroke recovery, MS, ALS, spinal stenosis, scoliosis, arthritis, or diabetes-related foot issues — we design orthotic devices to stabilize, correct, or relieve pressure exactly where you need it.</p>
-          <p class="text-lg leading-8 text-black/75">A full bio-mechanical assessment by our Canadian Certified Orthotists ensures every brace is right for your condition.</p>
+      <div class="relative mx-auto max-w-7xl px-4 py-20 md:px-8 lg:px-12 md:py-28">
+        <div class="max-w-2xl">
+          <p class="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em]">Orthotic Care</p>
+          <h1 class="text-5xl md:text-6xl leading-[0.95] mb-6">Custom Orthotic Care Built Around You.</h1>
+          <p class="text-lg text-white/85 max-w-xl mb-8">The right orthosis should do more than support your body — it should help you move with greater comfort, stability, and confidence.</p>
+          <a href="mailto:info@hamiltonprosthetics.ca?subject=Orthotic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-7 py-4 font-semibold text-white shadow-lg hover:bg-[#3f8258]">Book a Free Orthotic Consultation</a>
         </div>
-        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/2776F98F-03C3-4C41-A931-8B4D28429309.jpg?updatedAt=1785424471497" alt="Clinician fitting a custom orthotic brace" class="rounded-3xl w-full object-cover shadow-md" />
       </div>
     </section>
 
-    <section data-section="conditions" class="bg-[#F2F4F5]">
+    <!-- WHERE DO YOU NEED SUPPORT - 5 CARD GRID -->
+    <section data-section="support-grid" class="bg-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
-        <h2 class="text-4xl md:text-5xl text-center mb-12">Conditions We Support</h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-center">
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Joint Injuries</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Cerebral Palsy</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Stroke Recovery</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Multiple Sclerosis</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">ALS</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Spinal Stenosis</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Scoliosis</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Arthritis</p></div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm"><p class="font-semibold">Diabetic Foot Issues</p></div>
+        <h2 class="text-4xl md:text-5xl text-center mb-12">Where Do You Need Support?</h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div class="rounded-3xl bg-[#F2F4F5] p-6">
+            <h3 class="text-xl mb-2">Foot &amp; Ankle</h3>
+            <p class="text-sm text-black/65 leading-6">Custom foot orthotics, ankle bracing, diabetic foot care and AFOs.</p>
+          </div>
+          <div class="rounded-3xl bg-[#F2F4F5] p-6">
+            <h3 class="text-xl mb-2">AFOs</h3>
+            <p class="text-sm text-black/65 leading-6">Ankle-foot orthoses for foot drop, weakness, and gait difficulties.</p>
+          </div>
+          <div class="rounded-3xl bg-[#F2F4F5] p-6">
+            <h3 class="text-xl mb-2">Knee &amp; KAFO</h3>
+            <p class="text-sm text-black/65 leading-6">Stability and alignment for weakness, instability, and complex needs.</p>
+          </div>
+          <div class="rounded-3xl bg-[#F2F4F5] p-6">
+            <h3 class="text-xl mb-2">Spinal</h3>
+            <p class="text-sm text-black/65 leading-6">Custom bracing for scoliosis, kyphosis, and post-operative support.</p>
+          </div>
+          <div class="rounded-3xl bg-[#F2F4F5] p-6">
+            <h3 class="text-xl mb-2">Upper Limb</h3>
+            <p class="text-sm text-black/65 leading-6">Support for the hand, wrist, elbow and shoulder.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- PEDIATRIC LARGE PHOTO -->
+    <section data-section="pediatric-photo" class="relative bg-[#1B3A4B] text-white overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_0101.jpg?updatedAt=1785424496890" alt="Child being fitted with a pediatric orthotic brace" class="w-full h-full object-cover opacity-35" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1B3A4B] via-[#1B3A4B]/60 to-[#1B3A4B]/20"></div>
+      </div>
+      <div class="relative mx-auto max-w-4xl px-4 py-20 md:px-8 md:py-24 text-center">
+        <h2 class="text-4xl md:text-5xl mb-4">Pediatric Orthotic Care</h2>
+        <p class="text-lg text-white/85 mb-8">Children grow quickly, and their orthotic needs can change just as fast. We support movement, development, and everyday life — not just the device.</p>
+        <a href="/hamilton-prosthetics-site/pediatrics" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold text-white hover:bg-[#3f8258]">Explore Pediatric Orthotics</a>
+      </div>
+    </section>
+
+    <!-- CONDITIONS - SEARCHABLE GRID -->
+    <section data-section="conditions" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-8 max-w-2xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Conditions We Commonly Treat</h2>
+          <p class="text-black/70">You don't need to know what type of brace you need before contacting us. Your individual assessment determines the orthotic solution we recommend.</p>
+        </div>
+        <div class="max-w-md mx-auto mb-10">
+          <input id="condition-search" type="text" placeholder="Search a condition (e.g. scoliosis, foot drop)" class="w-full rounded-full border border-black/15 px-5 py-3 text-black/80 focus:outline-none focus:border-[#4A90B8]" />
+        </div>
+        <div id="condition-grid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Foot Drop</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Cerebral Palsy</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Multiple Sclerosis</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Stroke</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Spinal Cord Injury</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Charcot-Marie-Tooth Disease</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Muscular Dystrophy</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Arthritis</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Joint Instability</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Ligament Injuries</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Scoliosis</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Charcot Foot</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Diabetes-Related Foot Conditions</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Pes Planus / Flat Feet</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Pes Cavus / High Arches</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Plantar Fasciitis</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Toe Walking</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Neuromuscular Weakness</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Congenital Conditions</div>
+          <div class="condition-chip rounded-xl bg-[#F2F4F5] px-4 py-3 text-center text-sm font-semibold">Sports &amp; Orthopaedic Injuries</div>
+        </div>
+        <p id="condition-empty" class="text-center text-black/50 mt-6 hidden">No matches — but that's alright. <a href="/hamilton-prosthetics-site/contact" class="text-[#4A90B8] font-semibold hover:underline">Tell us what's happening and we'll help figure it out.</a></p>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY CALLOUT -->
+    <section data-section="philosophy" class="bg-[#1B3A4B] text-white">
+      <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
+        <h2 class="text-3xl md:text-5xl leading-tight mb-4">We don't begin by asking which technology we can use.<br class="hidden md:block" /> We begin by asking what problem we need to solve.</h2>
+        <p class="text-lg text-white/80">Your orthotist will recommend the design and technology that best matches your physical abilities, functional needs and goals.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS FLOW -->
+    <section data-section="process" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Custom Designed. Carefully Fitted.</h2>
+          <p class="text-black/70">Our clinical and technical teams work closely together throughout the process.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">1</div>
+            <h3 class="text-lg mb-1">Assess</h3>
+            <p class="text-xs text-black/60">Understanding your diagnosis, presentation, and goals.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">2</div>
+            <h3 class="text-lg mb-1">Design</h3>
+            <p class="text-xs text-black/60">Determining the device type, materials, and biomechanics.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">3</div>
+            <h3 class="text-lg mb-1">Fabricate</h3>
+            <p class="text-xs text-black/60">Custom elements built to your measurements.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">4</div>
+            <h3 class="text-lg mb-1">Fit</h3>
+            <p class="text-xs text-black/60">Evaluating alignment, comfort, pressure, and function.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">5</div>
+            <h3 class="text-lg mb-1">Adjust</h3>
+            <p class="text-xs text-black/60">Changes made to improve fit and function.</p>
+          </div>
+          <div class="rounded-2xl bg-[#F2F4F5] p-5 text-center">
+            <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#4A90B8] text-white text-sm font-semibold">6</div>
+            <h3 class="text-lg mb-1">Follow Up</h3>
+            <p class="text-xs text-black/60">Adjustment, repair or replacement as things change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MADE HERE FOR YOU -->
+    <section data-section="made-here" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <div class="text-center mb-10 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-5xl mb-4">Made Here. For You.</h2>
+          <p class="text-black/70 leading-7">Many of our custom orthotic devices are fabricated and adjusted on-site at our London clinic. For complex orthotic care, small changes can make a significant difference — and having that ability in-house lets us respond throughout the fitting process.</p>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_1110.jpg?updatedAt=1785424493221" alt="Orthotic fabrication lab work" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/2776F98F-03C3-4C41-A931-8B4D28429309.jpg?updatedAt=1785424471497" alt="Custom orthotic fitting" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+          <img src="https://ik.imagekit.io/79slpht9b/Hamilton%20Prosthetics/IMG_3727.jpg?updatedAt=1785424499041" alt="Hamilton Prosthetics & Orthotics clinic" class="rounded-2xl w-full h-56 object-cover shadow-sm" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ONGOING CARE -->
+    <section data-section="ongoing-care" class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20">
+        <h2 class="text-4xl md:text-5xl text-center mb-4">Ongoing Orthotic Care</h2>
+        <p class="text-center text-black/70 max-w-2xl mx-auto mb-12">Growth, weight, strength, range of motion, and everyday activities can all affect the way an orthosis fits and functions. If your current brace isn't working the way it should, we can assess what's changed.</p>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
+          <div><div class="text-3xl mb-2">🔧</div><p class="font-semibold text-sm">Fit Adjustments</p></div>
+          <div><div class="text-3xl mb-2">🩹</div><p class="font-semibold text-sm">Repairs &amp; Maintenance</p></div>
+          <div><div class="text-3xl mb-2">📈</div><p class="font-semibold text-sm">Growth Adjustments</p></div>
+          <div><div class="text-3xl mb-2">🔁</div><p class="font-semibold text-sm">Reassessment &amp; Replacement</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDING CROSS-LINK -->
+    <section data-section="funding-crosslink" class="bg-[#F2F4F5]">
+      <div class="mx-auto max-w-4xl px-4 py-12 md:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl mb-3">Help With Orthotic Funding</h2>
+        <p class="text-black/70 mb-4">Coverage for custom orthotic devices varies. We'll help you understand the funding that may apply and prepare the documentation required.</p>
+        <a href="/hamilton-prosthetics-site/funding-sponsorship" class="font-semibold text-[#4A90B8] hover:underline">Explore Funding Options →</a>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
     <section data-section="cta" class="bg-white">
       <div class="mx-auto max-w-4xl px-4 py-16 md:px-8 md:py-20 text-center">
-        <h2 class="text-4xl md:text-5xl mb-6">Let's take the pressure off.</h2>
-        <p class="text-lg text-black/70 mb-8">Free consultations at our wheelchair-accessible London clinic.</p>
-        <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book Your Free Consultation</a>
+        <h2 class="text-4xl md:text-5xl mb-4">Let's Find the Right Solution for You.</h2>
+        <p class="text-lg text-black/70 mb-2">You don't need to know what kind of brace you need before coming to see us.</p>
+        <p class="text-lg text-black/70 mb-8">Hamilton Prosthetics &amp; Orthotics — family-owned and serving London and Southwestern Ontario since 1988.</p>
+        <a href="mailto:info@hamiltonprosthetics.ca?subject=Orthotic%20Consultation%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-8 py-4 font-semibold text-white hover:bg-[#3f8258]">Book a Free Orthotic Consultation</a>
       </div>
     </section>
   </main>
@@ -398,5 +550,7 @@
 
 
   <script src="https://paymegpt.com/widget.js" data-widget="56161813" async></script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
