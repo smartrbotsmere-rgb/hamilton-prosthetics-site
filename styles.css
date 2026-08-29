@@ -39,6 +39,13 @@
     html{scroll-behavior:smooth}
     body{font-family:'Libre Franklin',sans-serif;background:var(--white);color:var(--ink)}
     h1,h2,h3,.display-font{font-family:'Cormorant Garamond',serif}
+    .condition-chip{transition:opacity .15s ease, transform .15s ease}
+    .condition-chip.hidden-chip{display:none}
+
+:root{--navy:#1B3A4B;--white:#FFFFFF;--grey:#F2F4F5;--blue:#4A90B8;--green:#4C9A6A;--ink:#13242d}
+    html{scroll-behavior:smooth}
+    body{font-family:'Libre Franklin',sans-serif;background:var(--white);color:var(--ink)}
+    h1,h2,h3,.display-font{font-family:'Cormorant Garamond',serif}
     .reviews-scroll::-webkit-scrollbar{display:none}
     .reviews-scroll{-ms-overflow-style:none;scrollbar-width:none}
 
