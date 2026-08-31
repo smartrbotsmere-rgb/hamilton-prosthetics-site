@@ -17,25 +17,29 @@
 
 <!-- SEO Meta Tags -->
 <title>Contact | Hamilton Prosthetics &amp; Orthotics</title>
-<meta name="description" content="Contact page with map and appointment info" />
+<meta name="description" content="Contact Hamilton Prosthetics &amp; Orthotics in London, Ontario. Book a free consultation, get directions, or ask a question." />
 <meta property="og:title" content="Contact | Hamilton Prosthetics &amp; Orthotics" />
-<meta property="og:description" content="Contact page with map and appointment info" />
+<meta property="og:description" content="Contact Hamilton Prosthetics &amp; Orthotics in London, Ontario. Book a free consultation, get directions, or ask a question." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Contact | Hamilton Prosthetics &amp; Orthotics" />
-<meta name="twitter:description" content="Contact page with map and appointment info" />
+<meta name="twitter:description" content="Contact Hamilton Prosthetics &amp; Orthotics in London, Ontario. Book a free consultation, get directions, or ask a question." />
 <!-- End SEO Meta Tags -->
 <script data-lp-token-hydrate>
 (function(){try{
   var slug="lp-ms7lo5bk-8lzzr";
+  var SITEK="";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
   var u=new URL(location.href);var found=null;var changed=false;
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
   if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
   if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
   function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
   if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
   if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
@@ -325,7 +329,7 @@
         <a href="/hamilton-prosthetics-site/referrals" class="hover:text-[#4A90B8]">Referrals</a>
         <a href="/hamilton-prosthetics-site/contact" class="text-[#4A90B8]">Contact</a>
       </div>
-      <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
+      <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex items-center rounded-full bg-[#4A90B8] px-4 py-2 text-sm font-semibold hover:bg-[#3f7ea1] whitespace-nowrap">Book Appointment</a>
     </div>
   </nav>
 
@@ -344,13 +348,13 @@
           <h2 class="text-4xl md:text-5xl mb-6">Get In Touch</h2>
           <div class="space-y-3 text-white/85">
             <p><strong class="text-white">Address:</strong> 450 Hamilton Rd, London ON N5Z 1R9</p>
-            <p><strong class="text-white">Phone:</strong> Joseph Griffa — (519) 878-2423</p>
-            <p><strong class="text-white">Email:</strong> jg.hamiltonpo@gmail.com</p>
+            <p><strong class="text-white">Phone:</strong> (519) 432-2041</p>
+            <p><strong class="text-white">Email:</strong> info@hamiltonprosthetics.ca</p>
             <p><strong class="text-white">Hours:</strong> Mon–Fri 8AM–5PM</p>
-            <p><strong class="text-white">Service area:</strong> London, Woodstock, St. Thomas, Strathroy, Sarnia, Southwestern Ontario</p>
+            <p><strong class="text-white">Service area:</strong> London, Woodstock, St. Thomas, Strathroy, Sarnia, Chatham, Windsor, Stratford, Lambeth, Tillsonburg and Southwestern Ontario</p>
           </div>
           <div class="mt-6 flex gap-4">
-            <a href="mailto:jg.hamiltonpo@gmail.com?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Request an Appointment</a>
+            <a href="mailto:info@hamiltonprosthetics.ca?subject=Appointment%20Request&body=Name%3A%0APhone%3A%0AWhat%20I%27m%20looking%20for%20help%20with%3A%0ABest%20time%20to%20reach%20me%3A" class="inline-flex rounded-full bg-[#4C9A6A] px-6 py-3.5 font-semibold hover:bg-[#3f8258]">Request an Appointment</a>
           </div>
           <div class="mt-8 flex gap-5 text-sm text-white/75">
             <a href="https://www.facebook.com/HamiltonProsthetics/" target="_blank" rel="noreferrer" class="hover:text-white">Facebook</a>
@@ -366,9 +370,9 @@
     <section data-section="ai-chat" class="bg-white">
       <div class="mx-auto max-w-7xl px-4 py-16 md:px-8 lg:px-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
         <div>
-          <p class="text-sm uppercase tracking-[0.2em] text-[#4A90B8] mb-3">AI assistance</p>
+          <p class="text-sm uppercase tracking-[0.2em] text-[#4A90B8] mb-3">Ask Hamilton P&amp;O</p>
           <h2 class="text-4xl md:text-5xl mb-6">Prefer to Ask a Question First?</h2>
-          <p class="text-lg leading-8 text-black/75">Our AI assistant can answer questions about services, funding, and appointments any time — day or night.</p>
+          <p class="text-lg leading-8 text-black/75">Ask Hamilton P&amp;O for instant answers about services, funding, and appointments — any time, day or night.</p>
         </div>
         <div class="rounded-3xl bg-[#F2F4F5] p-4 md:p-6">
           <iframe src="https://paymegpt.com/agents/56161813/embed" frameborder="0" style="width:100%;max-width:480px;height:575px;border:none;border-radius:12px;"></iframe>
